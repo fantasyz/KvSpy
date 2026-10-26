@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>KvSpy</title>
+    <!-- Paint the first frame black before React/CSS mount, so there is no
+         white flash while the app boots. Replaced by the real theme (dark
+         Mantine) once the app renders. -->
+    <style>html,body{margin:0;background:#000;color-scheme:dark}</style>
+    <!-- Neutralino client library (v6.9.0, kept in sync by `neu update`).
+         Loaded relatively so it resolves against the origin the binary (or the
+         Vite dev server) actually serves, without a hardcoded port. In dev,
+         `neu run` patches this tag's URL to the binary's dev server. In a
+         plain browser the file is still served (from public/) and simply
+         never connects — harmless. The binary injects the NL_* globals (incl.
+         NL_TOKEN) that make the client's WebSocket bridge work. -->
+    <script src="./neutralino.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

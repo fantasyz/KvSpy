@@ -1,0 +1,8 @@
+# Set default behavior to automatically convert line endings
+* text=auto eol=lf
+
+# Specific files that need CRLF line endings on Windows
+*.cmd text eol=crlf
+*.bat text eol=crlf
+*.csproj text eol=crlf
+*.sln text eol=crlf

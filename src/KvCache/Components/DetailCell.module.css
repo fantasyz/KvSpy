@@ -1,0 +1,40 @@
+.cell {
+  flex: 0 0 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.label {
+  color: var(--mantine-color-dimmed);
+  font-size: var(--mantine-font-size-xs);
+}
+
+/* Holds the value plus an optional "user-set" badge, inline. */
+.valueRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.value {
+  word-break: break-all;
+  font-size: var(--mantine-font-size-sm);
+  font-weight: 700;
+}
+
+/* Small badge shown when a value was set explicitly by the user. */
+.explicitBadge {
+  flex: 0 0 auto;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 1px 5px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--mantine-color-cyan-1);
+  background-color: var(--mantine-color-cyan-8);
+  border: 1px solid var(--mantine-color-cyan-7);
+  white-space: nowrap;
+}

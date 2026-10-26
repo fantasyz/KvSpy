@@ -1,0 +1,56 @@
+{
+  "$schema": "https://raw.githubusercontent.com/neutralinojs/neutralinojs/main/schemas/neutralino.config.schema.json",
+  "applicationId": "com.app.kvspy",
+  "version": "0.1.0",
+  "description": "KvSpy",
+  "defaultMode": "window",
+  "port": 8792,
+  "documentRoot": "/dist/",
+  "url": "/",
+  "enableServer": true,
+  "enableNativeAPI": true,
+  "tokenSecurity": "one-time",
+  "nativeAllowList": [
+    "app.*",
+    "os.*",
+    "filesystem.*",
+    "window.*",
+    "clipboard.*",
+    "net.*",
+    "debug.*"
+  ],
+  "modes": {
+    "window": {
+      "title": "KvSpy",
+      "width": 1500,
+      "height": 840,
+      "minWidth": 720,
+      "minHeight": 440,
+      "center": true,
+      "fullScreen": false,
+      "alwaysOnTop": false,
+      "icon": "/resources/icons/icon.png",
+      "enableInspector": false,
+      "borderless": false,
+      "maximize": false,
+      "hidden": false,
+      "resizable": true,
+      "exitProcessOnClose": true
+    }
+  },
+  "cli": {
+    "binaryName": "KvSpy",
+    "resourcesPath": "/dist/",
+    "clientLibrary": "/dist/neutralino.js",
+    "frontendLibrary": {
+      "patchFile": "index.html",
+      "devUrl": "http://localhost:5173",
+      "projectPath": "./",
+      "devCommand": "npm run dev",
+      "buildCommand": "npm run build",
+      "waitTimeout": 30000
+    },
+    "binaryVersion": "6.9.0",
+    "clientVersion": "6.9.0"
+  }
+}

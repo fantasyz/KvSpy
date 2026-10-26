@@ -1,0 +1,24 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 84px);
+  /* Uniform row tracks matching the (dynamic) cell height set on this
+     element via the --cell-height variable. */
+  grid-auto-rows: var(--cell-height, 84px);
+  gap: 8px;
+  padding: 16px;
+  /* Fill the scroll area so clicks on empty space (below the cells) reach the
+     grid's clear handler. Align rows to the top so the extra space is left at
+     the bottom instead of stretching the row tracks apart. */
+  min-height: 100%;
+  align-content: start;
+}
+
+.empty {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--mantine-color-dimmed);
+}

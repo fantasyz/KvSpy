@@ -1,0 +1,7 @@
+/* Global font-size variables — single source of truth for content sizing.
+   Extend as needed. */
+:root {
+  --font-size-small: 0.75rem;
+  --font-size-medium: 0.875rem;
+  --font-size-large: 1rem;
+}

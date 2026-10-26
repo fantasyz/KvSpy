@@ -1,0 +1,22 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sectionTitle {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: var(--mantine-font-size-xs);
+}
+
+/* The marks labels hang below the track; keep them clear of the content
+   that follows the slider. */
+.intervalSlider {
+  margin-bottom: 20px;
+}
+
+/* Constrain the response-file-limit input so it does not span the modal. */
+.limitInput {
+  max-width: 240px;
+}

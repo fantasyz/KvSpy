@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- KvSpy app icon (v3): magnifier centered on the middle cache block.
+       Flat solid yellow-brown frame (no gradient) with a dark-brown border. -->
+  <defs>
+    <linearGradient id="kvspy-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e1b4b"/>
+      <stop offset="1" stop-color="#164e63"/>
+    </linearGradient>
+  </defs>
+
+  <g>
+    <!-- Rounded tile -->
+    <rect width="512" height="512" rx="96" fill="url(#kvspy-bg)"/>
+
+    <!-- KV cache block grid (3x3) — side blocks vary in brightness to read
+         like a heat map; all are kept darker than the highlighted center. -->
+    <g fill="#e0e7ff">
+      <rect x="72"  y="72"  width="104" height="104" rx="22" fill-opacity="0.30"/>
+      <rect x="204" y="72"  width="104" height="104" rx="22" fill-opacity="0.45"/>
+      <rect x="336" y="72"  width="104" height="104" rx="22" fill-opacity="0.22"/>
+      <rect x="72"  y="204" width="104" height="104" rx="22" fill-opacity="0.50"/>
+      <rect x="336" y="204" width="104" height="104" rx="22" fill-opacity="0.28"/>
+      <rect x="72"  y="336" width="104" height="104" rx="22" fill-opacity="0.35"/>
+      <rect x="204" y="336" width="104" height="104" rx="22" fill-opacity="0.18"/>
+      <rect x="336" y="336" width="104" height="104" rx="22" fill-opacity="0.42"/>
+    </g>
+
+    <!-- Highlighted center block being inspected -->
+    <rect x="204" y="204" width="104" height="104" rx="22" fill="#22d3ee"/>
+
+    <!-- Lens glass tint over the block -->
+    <circle cx="256" cy="256" r="114" fill="#ffffff" fill-opacity="0.10"/>
+
+    <!-- Handle, drawn BEHIND the ring, with a dark-brown border -->
+    <line x1="330" y1="330" x2="432" y2="432"
+          stroke="#4a2c10" stroke-width="42" stroke-linecap="round"/>
+    <line x1="330" y1="330" x2="432" y2="432"
+          stroke="#c8862a" stroke-width="30" stroke-linecap="round"/>
+
+    <!-- Dark-brown border behind the ring -->
+    <circle cx="256" cy="256" r="114" fill="none"
+            stroke="#4a2c10" stroke-width="46"/>
+
+    <!-- Magnifier ring (solid yellow-brown), on top of the border and handle -->
+    <circle cx="256" cy="256" r="114" fill="none"
+            stroke="#c8862a" stroke-width="34"/>
+  </g>
+</svg>

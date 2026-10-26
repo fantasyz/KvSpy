@@ -1,0 +1,45 @@
+.footer {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-top: 1px solid var(--mantine-color-dark-5);
+  background-color: #1a1a1a;
+}
+
+.label {
+  flex: 0 0 auto;
+}
+
+/* Admin controls (Pin, Disposable, Release), centered in the footer. */
+.controls {
+  display: flex;
+  gap: 6px;
+}
+
+/* Tone the button labels down from pure white; release gets a red tint. */
+.controls button {
+  color: var(--mantine-color-dimmed);
+}
+
+/* Drop Mantine's filled disabled background so disabled buttons blend into
+   the footer. */
+.controls button:disabled {
+  background: transparent;
+}
+
+.controls button:hover:not(:disabled) {
+  color: var(--mantine-color-white);
+}
+
+.release {
+  color: var(--mantine-color-red-4) !important;
+}
+
+/* The red tint above overrides Mantine's disabled color; restore the dimmed
+   look when there is no selection so it matches the other footer buttons. */
+.release:disabled {
+  color: var(--mantine-color-dimmed) !important;
+}

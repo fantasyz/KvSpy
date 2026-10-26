@@ -1,0 +1,46 @@
+.tabs {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.list {
+  flex: 0 0 auto;
+  border-bottom: 1px solid var(--mantine-color-dark-4);
+}
+
+/* Darken inactive tabs so the selected tab clearly stands out. */
+.list :global(.mantine-Tabs-tab):not([aria-selected='true']) {
+  color: var(--mantine-color-dark-2);
+}
+
+.list :global(.mantine-Tabs-tab):not([aria-selected='true']):hover {
+  background-color: transparent;
+  color: var(--mantine-color-dark-0);
+}
+
+/* Active tab: a raised box that connects to the panel below. The negative
+   bottom margin lets its background overlap (and hide) the strip's border
+   line under the tab. */
+.list :global(.mantine-Tabs-tab)[aria-selected='true'] {
+  background-color: #ffffff10;
+  border-top: 1px solid var(--mantine-color-dark-5);
+  border-left: 1px solid var(--mantine-color-dark-5);
+  border-right: 1px solid var(--mantine-color-dark-5);
+  border-radius: 4px 4px 0 0;
+  margin-bottom: -1px;
+}
+
+/* Panels fill the remaining height; Mantine pads panels by default, which
+   would inset the fixed header/footer layout inside. The side/bottom borders
+   complete the tab-control box (the strip's bottom border is the top edge). */
+.panel {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0 !important;
+  border-left: 1px solid var(--mantine-color-dark-5);
+  border-right: 1px solid var(--mantine-color-dark-5);
+  border-bottom: 1px solid var(--mantine-color-dark-5);
+}

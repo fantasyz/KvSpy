@@ -1,0 +1,49 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: var(--mantine-font-size-sm);
+  background-color: var(--mantine-color-dark-9);
+}
+
+.row:hover {
+  background-color: var(--mantine-color-gray-light);
+}
+
+.index {
+  flex: 0 0 auto;
+  width: 48px;
+  text-align: right;
+  color: var(--mantine-color-dimmed);
+  font-family: var(--mantine-font-family-monospace);
+  font-size: var(--mantine-font-size-xs);
+}
+
+.role {
+  flex: 0 0 auto;
+  width: 100px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.preview {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: var(--mantine-color-gray-7);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.badge {
+  flex: 0 0 auto;
+}

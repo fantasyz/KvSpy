@@ -1,0 +1,20 @@
+/* Flex column layout: fixed header, scrolling cache view (flex-grow), and a
+   collapsible console footer. The container fills the window. */
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #202020;
+}
+
+.header {
+  flex: 0 0 auto;
+  border-bottom: 1px solid var(--mantine-color-dark-5);
+}
+
+.main {
+  flex: 1 1 auto;
+  overflow: hidden;
+  position: relative;
+}

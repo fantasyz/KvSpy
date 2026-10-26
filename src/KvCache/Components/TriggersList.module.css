@@ -1,0 +1,59 @@
+.empty {
+  padding: 16px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--mantine-color-dark-6);
+  background-color: #00000026;
+}
+
+.row:hover {
+  background-color: #ffffff0d;
+}
+
+/* Selection is a border only (no full-row background): a blue fill made the
+   dimmed action/delay text at the row end hard to read. */
+.rowSelected {
+  box-shadow: inset 0 0 0 1px var(--mantine-color-blue-6);
+}
+
+.rowSelected:hover {
+  background-color: transparent;
+}
+
+.rowDisabled {
+  opacity: 0.5;
+}
+
+.marker {
+  font-family: var(--mantine-font-family-monospace);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Lock badge on fixed (non-deletable) trigger rows. */
+.lock {
+  flex: 0 0 auto;
+  color: var(--mantine-color-dimmed);
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Action text at the row end; never wraps so long markers keep one line. */
+.action {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}

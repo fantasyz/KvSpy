@@ -1,0 +1,52 @@
+{
+  "name": "kvspy",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "description": "KvSpy — a KV cache inspector that connects to an inference engine and manages its KV cache externally (evict, keep/pin, search). Built with NeutralinoJs + React + TypeScript + Mantine + Zustand.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext .ts,.tsx",
+    "dev:desktop": "neu run",
+    "build:desktop": "rm -rf .tmp dist/KvSpy dist/assets && npm run build && neu build",
+    "install": "bash scripts/install.sh"
+  },
+  "keywords": [
+    "neutralino",
+    "react",
+    "kv-cache",
+    "desktop"
+  ],
+  "author": "",
+  "license": "GPL-2.0",
+  "dependencies": {
+    "@mantine/core": "^9.2.1",
+    "@mantine/hooks": "^9.2.1",
+    "@mantine/notifications": "^9.3.0",
+    "@neutralinojs/lib": "^6.9.0",
+    "@tabler/icons-react": "^3.44.0",
+    "dush": "^3.1.1",
+    "prismjs": "^1.30.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "zustand": "^5.0.13"
+  },
+  "devDependencies": {
+    "@neutralinojs/neu": "^11.7.2",
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^26.2.0",
+    "@types/prismjs": "^1.26.6",
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
+    "@typescript-eslint/eslint-plugin": "^8.60.1",
+    "@typescript-eslint/parser": "^8.60.1",
+    "@vitejs/plugin-react": "^6.0.2",
+    "eslint": "^10.4.1",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.14"
+  }
+}

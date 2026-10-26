@@ -1,0 +1,12 @@
+.bar {
+  flex: 0 0 auto;
+}
+
+.row {
+  padding: 0;
+}
+
+.error {
+  padding: 4px 0;
+  word-break: break-word;
+}

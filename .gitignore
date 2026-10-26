@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+node_modules_win/
+node_modules_linux/
+
+# Build output
+dist/
+
+# Neutralino downloaded native binary (regenerate with `neu update`)
+bin/
+
+# Neutralino dev scratch: window state + transient bridge credentials (regenerated; may contain a token)
+.tmp/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+
+# Qwen Code session files
+.qwen-session
+
+# playwright
+.playwright-cli
+test-results/
+playwright-report/
+
+# Local notes (not committed)
+docs/github-mirror.md
+
+# Plan / task working files (not committed; see commit conventions)
+plans/on-hold/
+tasks/done/
+tasks/index.json
+tsconfig.tsbuildinfo

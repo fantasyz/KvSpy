@@ -1,0 +1,40 @@
+.view {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.columns {
+  flex: 1 1 auto;
+  display: flex;
+  min-height: 0;
+}
+
+.cellsColumn {
+  flex: 0 0 500px;
+  min-width: 500px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.divider {
+  flex: 0 0 3px;
+  cursor: col-resize;
+  background-color: var(--mantine-color-dark-5);
+  transition: background-color 0.15s ease;
+}
+
+.divider:hover,
+.dividerActive {
+  background-color: var(--mantine-color-blue-filled);
+}
+
+.detailColumn {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 280px;
+  border-left: none;
+}

@@ -1,0 +1,25 @@
+.header {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--mantine-color-dark-6);
+  cursor: pointer;
+  user-select: none;
+}
+
+.title {
+  font-size: var(--font-size-small);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--mantine-color-dimmed);
+}
+
+/* Push the filter input and Clear button to the right edge; the rest of the
+   header is a fold/unfold toggle target. */
+.headerActions {
+  margin-left: auto;
+  display: flex;
+  gap: 4px;
+}

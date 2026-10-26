@@ -1,0 +1,23 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid var(--mantine-color-dark-4);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--mantine-color-blue-5);
+  cursor: pointer;
+  padding: 1px 6px;
+  font-family: var(--mantine-font-family-monospace);
+  font-size: 11px;
+  line-height: 1.7;
+  transition: background-color 0.12s ease;
+}
+
+.chip:hover {
+  background: var(--mantine-color-blue-9);
+}
+
+.chipKey {
+  color: var(--mantine-color-dimmed);
+}

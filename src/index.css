@@ -1,0 +1,32 @@
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+html {
+  background-color: #000;
+}
+
+/* #root is empty until React mounts AppContainer; keep it dark so there is no
+   light area while the bundle loads. */
+#root {
+  background-color: #202020;
+}
+
+body {
+  font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Fixed dark background (the app is always dark). Using a concrete color
+     instead of var(--mantine-color-body) avoids a white flash: Mantine's
+     light-scheme default for that var applies before MantineProvider switches
+     to dark, which would otherwise paint the body white. */
+  background-color: #202020;
+  color: var(--mantine-color-text, #eee);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

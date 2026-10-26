@@ -1,0 +1,64 @@
+.header {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--mantine-color-dark-5);
+  background-color: #1a1a1a;
+}
+
+/* First row: three stats spread across the width via flex-fill spacers. */
+.infoRow {
+  display: flex;
+  align-items: center;
+}
+
+.infoSpacer {
+  flex: 1;
+}
+
+/* Second row: Auto-Refresh toggle on the left, Refresh button on the right. */
+.controlsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Idle state: dim the Auto-Refresh label while the toggle is off, so the
+   active (yellow LED) state stands out against it. */
+.toggleOff {
+  color: var(--mantine-color-dimmed) !important;
+}
+
+/* LED-style indicator dot at the front of the Auto-Refresh toggle button. */
+.ledDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--mantine-color-dark-4);
+  flex: 0 0 auto;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Active state: yellow dot with a tight, crisp glow. */
+.ledOn {
+  background-color: var(--mantine-color-yellow-5);
+  box-shadow: 0 0 2px 0 var(--mantine-color-yellow-4);
+  animation: ledPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes ledPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 2px 0 var(--mantine-color-yellow-4);
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 3px 0 var(--mantine-color-yellow-3);
+    opacity: 0.85;
+  }
+}

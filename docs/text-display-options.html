@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KvSpy - Text Display Options</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #ffffff;
+  color: #1a1a1a;
+  padding: 40px;
+}
+h1 { margin-bottom: 10px; font-size: 28px; color: #1a1a1a; }
+.subtitle { color: #666; margin-bottom: 30px; font-size: 14px; }
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 30px;
+}
+
+.option-card {
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.option-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #0066cc;
+}
+
+.option-desc {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.preview {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 15px;
+  font-family: 'SF Mono', Monaco, monospace;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-x: auto;
+  color: #333;
+}
+
+.marker {
+  background: #ffe8b3;
+  color: #8b5a00;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 600;
+}
+.msg-boundary {
+  display: block;
+  border-top: 1px dashed #ccc;
+  margin: 8px 0;
+  padding-top: 8px;
+  position: relative;
+}
+.msg-boundary::before {
+  content: attr(data-label);
+  position: absolute;
+  top: -9px;
+  left: 10px;
+  background: #f8f8f8;
+  padding: 0 6px;
+  color: #888;
+  font-size: 10px;
+}
+
+.metadata {
+  background: #eef5ff;
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 11px;
+  border: 1px solid #d4e8ff;
+}
+.metadata-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 0;
+}
+.metadata-label { color: #666; }
+.metadata-value { color: #333; font-weight: 500; }
+
+.section {
+  margin-bottom: 8px;
+}
+.section-header {
+  background: #e8f0fe;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 11px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #d4e8ff;
+}
+.section-header::before {
+  content: '▸';
+  color: #0066cc;
+}
+.section-header.expanded::before {
+  content: '▾';
+}
+.section-content {
+  padding: 8px 0 8px 20px;
+  border-left: 2px solid #0066cc;
+  margin-left: 8px;
+  white-space: pre-wrap;
+  color: #333;
+}
+.section-content.collapsed {
+  display: none;
+}
+
+.json-preview {
+  font-size: 11px;
+  line-height: 1.4;
+}
+.json-key { color: #0066cc; font-weight: 500; }
+.json-string { color: #008000; }
+.json-number { color: #cc6600; }
+
+.pros-cons {
+  margin-top: 15px;
+  font-size: 12px;
+  color: #333;
+}
+.pros, .cons {
+  margin-bottom: 8px;
+}
+.pros span, .cons span {
+  display: inline-block;
+  width: 20px;
+  font-weight: bold;
+}
+.pros span { color: #008000; }
+.cons span { color: #cc0000; }
+
+.recommendation {
+  margin-top: 40px;
+  padding: 20px;
+  background: #f0f7ff;
+  border-radius: 8px;
+  border: 1px solid #d4e8ff;
+}
+.recommendation h2 {
+  color: #0066cc;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+.recommendation p {
+  line-height: 1.6;
+  font-size: 14px;
+  color: #333;
+}
+.recommendation ul {
+  margin: 10px 0 0 20px;
+  line-height: 1.8;
+  font-size: 13px;
+  color: #555;
+}
+</style>
+</head>
+<body>
+<h1>KvSpy - Prompt Text Display Options</h1>
+<p class="subtitle">Suggestions for showing message/segment boundaries in the detail panel</p>
+
+<div class="options">
+
+  <div class="option-card">
+    <div class="option-title">Option 1: Inline Markers</div>
+    <div class="option-desc">Add visual markers directly in the text stream to show where messages and segments begin.</div>
+    <div class="preview">
+      <div style="margin-bottom: 8px; color: #666;">System prompt (1,245 chars):</div>
+      <div class="msg-boundary" data-label="[System]">
+        You are a helpful assistant...
+        <span class="marker">SYS_END</span>
+      </div>
+      <div class="msg-boundary" data-label="[User]">
+        What is 2+2?
+        <span class="marker">USER_END</span>
+      </div>
+      <div class="msg-boundary" data-label="[Assistant]">
+        The answer is 4.
+        <span class="marker">ASSISTANT_END</span>
+      </div>
+      <div style="margin-top: 8px; color: #888;">
+        Total: 3,456 chars | 3 segments
+      </div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><span>+</span> Simple, no UI complexity</div>
+      <div class="cons"><span>-</span> Text can be cluttered with many messages</div>
+      <div class="cons"><span>-</span> Hard to parse programmatically</div>
+    </div>
+  </div>
+
+  <div class="option-card">
+    <div class="option-title">Option 2: Metadata Panel + Clean Text</div>
+    <div class="option-desc">Show segment metadata above the text, keep text clean and readable.</div>
+    <div class="preview">
+      <div class="metadata">
+        <div class="metadata-item">
+          <span class="metadata-label">Segments</span>
+          <span class="metadata-value">3 messages, 2 tool calls</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Breakdown</span>
+          <span class="metadata-value">System: 1.2KB, User: 45B, Assistant: 23B, Tool: 890B</span>
+        </div>
+      </div>
+      <div style="color: #666; margin-bottom: 8px; font-size: 11px;">Prompt text:</div>
+      <div>
+        You are a helpful assistant...
+        What is 2+2?
+        The answer is 4.
+        [TOOL_CALL: calculate(2+2)]
+        [TOOL_RESULT: 4]
+      </div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><span>+</span> Clean text view</div>
+      <div class="pros"><span>+</span> Clear metadata summary</div>
+      <div class="cons"><span>-</span> Metadata and text are separate</div>
+    </div>
+  </div>
+
+  <div class="option-card">
+    <div class="option-title">Option 3: Collapsible Sections</div>
+    <div class="option-desc">Organize text into collapsible sections by message type.</div>
+    <div class="preview">
+      <div class="section">
+        <div class="section-header expanded">System (1,245 chars)</div>
+        <div class="section-content">You are a helpful assistant...</div>
+      </div>
+      <div class="section">
+        <div class="section-header">User (45 chars)</div>
+        <div class="section-content collapsed">What is 2+2?</div>
+      </div>
+      <div class="section">
+        <div class="section-header">Assistant (23 chars)</div>
+        <div class="section-content collapsed">The answer is 4.</div>
+      </div>
+      <div class="section">
+        <div class="section-header">Tool Call - calculate (890 chars)</div>
+        <div class="section-content collapsed">[TOOL_CALL data]</div>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><span>+</span> Organized, easy to navigate</div>
+      <div class="pros"><span>+</span> Shows size per section</div>
+      <div class="cons"><span>-</span> More UI complexity</div>
+      <div class="cons"><span>-</span> Clicks needed to see content</div>
+    </div>
+  </div>
+
+  <div class="option-card">
+    <div class="option-title">Option 4: Structured JSON (API Level)</div>
+    <div class="option-desc">Return structured data in API, let UI decide how to render.</div>
+    <div class="preview json-preview">
+      <span class="json-key">"prompt_segments"</span>: [
+        {
+          <span class="json-key">"type"</span>: <span class="json-string">"system"</span>,
+          <span class="json-key">"offset"</span>: <span class="json-number">0</span>,
+          <span class="json-key">"length"</span>: <span class="json-number">1245</span>,
+          <span class="json-key">"preview"</span>: <span class="json-string">"You are a helpful..."</span>
+        },
+        {
+          <span class="json-key">"type"</span>: <span class="json-string">"user"</span>,
+          <span class="json-key">"offset"</span>: <span class="json-number">1245</span>,
+          <span class="json-key">"length"</span>: <span class="json-number">45</span>,
+          <span class="json-key">"preview"</span>: <span class="json-string">"What is 2+2?"</span>
+        },
+        {
+          <span class="json-key">"type"</span>: <span class="json-string">"assistant"</span>,
+          <span class="json-key">"offset"</span>: <span class="json-number">1290</span>,
+          <span class="json-key">"length"</span>: <span class="json-number">23</span>,
+          <span class="json-key">"preview"</span>: <span class="json-string">"The answer is 4."</span>
+        }
+      ]
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><span>+</span> Flexible, UI can render however</div>
+      <div class="pros"><span>+</span> Machine-readable</div>
+      <div class="cons"><span>-</span> More API complexity</div>
+      <div class="cons"><span>-</span> Larger responses</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="recommendation">
+  <h2>Recommendation</h2>
+  <p>
+    <strong>Option 4 (Structured JSON)</strong> provides the best foundation - the API returns segment metadata,
+    and KvSpy can implement <strong>Option 3 (Collapsible Sections)</strong> for UI. This gives:
+  </p>
+  <ul>
+    <li>Flexible API that future tools can use</li>
+    <li>UI that shows structure at a glance</li>
+    <li>Ability to expand/collapse as needed</li>
+    <li>Previews for quick scanning without loading full text</li>
+  </ul>
+</div>
+
+</body>
+</html>
